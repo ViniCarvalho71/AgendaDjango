@@ -6,8 +6,16 @@
     </a>
     <ul>
         {% for evento in eventos %}
-            <li style="font-size: 18px">{{evento.titulo}} - {{evento.get_data_evento}} 
-                (<a style="text-decoration: none ; color: #000;" href="evento/?id={{evento.id}}">Editar</a> / <a style="text-decoration: none ; color: #000;" href="evento/delete/{{evento.id}}">Excluir</a>  )
+            <li style="font-size: 18px">
+                {% if evento.get_evento_atrasado  %}
+                <div style=  "color: red;">
+                {% else  %} 
+                <div>
+                {%endif%}
+                {{evento.titulo}} - {{evento.get_data_evento}} 
+                (<a style="text-decoration: none ; color: #000;" href="evento/?id={{evento.id}}">Editar</a> / 
+                <a style="text-decoration: none ; color: #000;" href="evento/delete/{{evento.id}}">Excluir</a>  )
+                </div>
             </li>
         {% endfor %}
     </ul>
