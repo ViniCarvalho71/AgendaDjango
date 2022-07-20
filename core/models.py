@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
+from datetime import datetime, timedelta
 # Create your models here.
 
 class Evento(models.Model):
@@ -28,3 +28,9 @@ class Evento(models.Model):
             return True
         else:
             return False
+    def one_hour_to_start(self):
+        hora_data = datetime.now() + timedelta(hours=1)
+        if self.data_evento < hora_data:
+            return True
+        else:
+            return False 

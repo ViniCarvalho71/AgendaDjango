@@ -9,7 +9,9 @@
             <li style="font-size: 18px">
                 {% if evento.get_evento_atrasado  %}
                 <div style=  "color: red;">
-                {% else  %} 
+                {% elif evento.one_hour_to_start  %} 
+                <div style=  "color: yellow;">
+                {% else %}
                 <div>
                 {%endif%}
                 {{evento.titulo}} - {{evento.get_data_evento}} 
